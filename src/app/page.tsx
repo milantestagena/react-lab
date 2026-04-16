@@ -1,4 +1,6 @@
 import Counter from "@/components/Counter";
+import FocusInput from "@/components/FocusInput";
+import RefForwardingDemo from "@/components/RefForwardingDemo";
 
 // Ovo je Server Component (nema 'use client') — renderuje se na serveru,
 // HTML stiže do browsera već spreman. Nema JS overhead za ovu komponentu.
@@ -15,6 +17,8 @@ export default function Home() {
       {/* Counter je Client Component — Next.js ga "hidrira" u browseru */}
       <Counter initialValue={0} step={1} />
       <Counter initialValue={10} step={5} />
+      <FocusInput />
+      <RefForwardingDemo />
     </main>
   );
 }
