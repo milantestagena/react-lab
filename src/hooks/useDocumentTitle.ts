@@ -6,12 +6,13 @@ export function useDocumentTitle(title: string): void {
   const originalTitle = useRef<string>(document.title);
 
   useEffect(() => {
+    // Kopiramo .current u lokalnu varijablu — React garantuje da će ova vrednost
+    // biti ista u cleanup-u, čak i ako se ref promeni u međuvremenu.
+    const prevTitle = originalTitle.current;
     document.title = title;
 
-    // Cleanup: pokreće se kada se komponenta DEMONTIRA (ili pre sledećeg efekta).
-    // Vraćamo naslov na ono što je bilo pre — kao da naša komponenta nikad nije ni bila tu.
     return () => {
-      document.title = originalTitle.current;
+      document.title = prevTitle;
     };
   }, [title]);
 }
