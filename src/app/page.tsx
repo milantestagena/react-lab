@@ -1,6 +1,8 @@
 import Counter from "@/components/Counter";
 import FocusInput from "@/components/FocusInput";
 import RefForwardingDemo from "@/components/RefForwardingDemo";
+import CounterWithReducer from "@/components/CounterWithReducer";
+import UserList from "@/components/UserList";
 
 // Ovo je Server Component (nema 'use client') — renderuje se na serveru,
 // HTML stiže do browsera već spreman. Nema JS overhead za ovu komponentu.
@@ -19,6 +21,8 @@ export default function Home() {
       <Counter initialValue={10} step={5} />
       <FocusInput />
       <RefForwardingDemo />
+      <CounterWithReducer />
+      <UserList />
     </main>
   );
 }
